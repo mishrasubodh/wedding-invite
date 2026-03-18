@@ -2,6 +2,7 @@
 <html lang="hi">
   <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wedding Invitation</title>
 
     <link
@@ -10,10 +11,221 @@
     />
 
     <style>
-      /* 🔥 TEXT FLY ANIMATION */
+    /* 📱 MOBILE FIRST DESIGN */
 
-      /* पहले hidden रहेगा */
-      .fly {
+body {
+  margin: 0;
+  font-family: "Tiro Devanagari Hindi", serif;
+  background: linear-gradient(135deg, #6d0000, #8b0000, #4b0000);
+  color: #ffd700;
+  text-align: center;
+
+  max-width: 480px;
+  margin: auto;
+  overflow-x: hidden;
+}
+
+/* PAGE */
+.page {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8px;
+}
+
+/* CARD */
+.card {
+  width: 100%;
+  padding: 18px 10px;
+  border-radius: 12px;
+
+  background:
+    url("https://www.transparenttextures.com/patterns/cream-paper.png"),
+    rgba(163, 0, 0, 0.95);
+
+  border: 2px solid gold;
+
+  box-shadow:
+    0 0 10px gold,
+    0 0 30px rgba(255, 215, 0, 0.7);
+}
+
+/* 🕉️ TEXT */
+h1 { font-size: 30px; }
+h2 { font-size: 24px; }
+h3 { font-size: 20px; }
+
+.names {
+  font-size: 28px;
+  margin: 10px 0;
+  color: white;
+}
+
+.section-title {
+  font-size: 28px;
+  margin: 10px 0;
+}
+
+p {
+  font-size: 18px;
+  margin: 5px 0;
+}
+
+/* 💍 RING */
+.ring {
+  font-size: 40px;
+}
+
+/* 📅 EVENTS */
+.event {
+  width: 100%;
+  margin: 10px 0;
+
+
+  background: linear-gradient(145deg, #7a0000, #a30000);
+  border: 2px solid gold;
+  border-radius: 12px;
+}
+
+.event-title {
+  font-size: 16px;
+  background: gold;
+  color: #8b0000;
+  padding: 4px 12px;
+  border-radius: 20px;
+  display: inline-block;
+  margin-bottom: 5px;
+}
+
+.event-date { font-size: 20px; }
+.event-time { font-size: 18px; }
+
+/* 📍 VENUE */
+.venue {
+  font-size: 18px;
+  padding: 12px;
+  margin-top: 10px;
+
+    background: linear-gradient(145deg, #007a2b, #ff2222);
+  border-radius: 10px;
+  border: 1px solid gold;
+}
+
+/* 📍 MAP BUTTON */
+.map-btn {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 18px;
+
+  font-size: 16px;
+  background: gold;
+  color: #8b0000;
+  border-radius: 20px;
+  text-decoration: none;
+}
+
+/* ⏳ COUNTDOWN */
+.countdown {
+  font-size: 22px;
+  padding: 12px;
+  margin-top: 10px;
+
+  background: #7a0000;
+  border-radius: 10px;
+  border: 1px solid gold;
+}
+
+/* 👶 CHILD */
+.child {
+  font-size: 18px;
+  padding: 12px;
+  margin-top: 15px;
+
+  background: linear-gradient(145deg, #006d7a, #ff0200);
+  border-radius: 10px;
+  border: 1px solid gold;
+}
+
+/* 👣 FOOTER */
+.footer-row {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.col {
+  width: 100%;
+  font-size: 16px;
+}
+
+/* 🔘 BUTTON */
+.music-btn {
+  position: static;
+  font-size: 18px;
+  padding: 12px 18px;
+  margin-bottom: 10px;
+
+  background: gold;
+  color: #8b0000;
+  border: none;
+  border-radius: 25px;
+}
+
+/* 🪔 GANESH */
+.ganesh img {
+  width: 70px;
+  border-radius: 50%;
+  box-shadow: 0 0 10px gold;
+}
+
+/* 💌 ENVELOPE */
+#envelope {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+
+  background: #8b0000;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  z-index: 9999;
+}
+
+#envelope .cover {
+  font-size: 80px;
+}
+
+#envelope .text {
+  font-size: 20px;
+  margin-top: 15px;
+}
+
+
+/* 🎥 BACKGROUND VIDEO FIX */
+.video-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;   /* ❗ पीछे भेज दिया */
+  overflow: hidden;
+}
+
+#bgVideo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;   /* पूरा screen cover */
+  filter: brightness(40%);
+}
+
+ .fly {
         opacity: 0;
         transform: translateY(100px) scale(0.8);
         pointer-events: none;
@@ -36,43 +248,12 @@
         }
       }
 
-      html {
-        scroll-behavior: smooth;
-        scroll-snap-type: y mandatory;
-      }
-
-      .bride {
-        color: #ffb6c1;
-
-        text-shadow:
-          0 0 10px #ff69b4,
-          0 0 25px #ff1493;
-      }
-
-      /* 🤵 Groom (लड़का) */
-      .groom {
-        color: #87cefa;
-
-        text-shadow:
-          0 0 10px #00bfff,
-          0 0 25px #1e90ff;
-      }
-
-      body {
-        margin: 0;
-        font-family: "Tiro Devanagari Hindi", serif;
-        background: linear-gradient(135deg, #6d0000, #8b0000, #4b0000);
-        color: #ffd700;
-        text-align: center;
-        overflow-x: hidden;
-      }
-
-      /* FLOWERS */
+ /* FLOWERS */
 
       .flower {
         position: fixed;
         top: -20px;
-        font-size: 20px;
+        font-size: 25px;
         animation: fall linear infinite;
         opacity: 0.8;
       }
@@ -82,751 +263,94 @@
           transform: translateY(110vh);
         }
       }
-
-      /* PAGE */
-
-      .page {
-        min-height: 100vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 40px;
-        scroll-snap-align: start;
-      }
-
-      /* CARD */
-
-      .card {
-        width: 750px;
-        max-width: 90%;
-
-        min-height: 750px;
-        /* 🔥 height increase */
-        height: auto;
-
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-
-        background:
-          url("https://www.transparenttextures.com/patterns/cream-paper.png"),
-          rgba(163, 0, 0, 0.92);
-
-        padding: 50px 30px;
-
-        border-radius: 20px;
-        border: 3px solid gold;
-
-        box-shadow:
-          0 0 10px gold,
-          0 0 30px rgba(255, 215, 0, 0.7),
-          0 0 60px rgba(255, 215, 0, 0.5);
-
-        position: relative;
-        overflow: hidden;
-
-        animation: slideUp 1.3s ease;
-      }
-
-      .card::before {
-        content: "";
-        position: absolute;
-        top: 10px;
-        left: 10px;
-        right: 10px;
-        bottom: 10px;
-
-        border: 1px dashed rgba(255, 215, 0, 0.6);
-        border-radius: 15px;
-
-        pointer-events: none;
-      }
-
-      .card::after {
-        content: "❁ ❁ ❁";
-        position: absolute;
-        top: 5px;
-        left: 50%;
-        transform: translateX(-50%);
-        font-size: 18px;
-        color: gold;
-        opacity: 0.7;
-      }
-
-      @keyframes slideUp {
-        from {
-          transform: translateY(80px);
-          opacity: 0;
-        }
-
-        to {
-          transform: translateY(0);
-          opacity: 1;
-        }
-      }
-
-      /* RING */
-
-      .ring {
-        font-size: 45px;
-        animation: ringMove 3s ease-in-out infinite;
-      }
-
-      @keyframes ringMove {
-        0% {
-          transform: translateY(0) rotate(0);
-        }
-
-        50% {
-          transform: translateY(-10px) rotate(20deg);
-        }
-
-        100% {
-          transform: translateY(0) rotate(0);
-        }
-      }
-
-      @keyframes ringRotate {
-        from {
-          transform: rotate(0);
-        }
-
-        to {
-          transform: rotate(360deg);
-        }
-      }
-
-      /* DIYA */
-
-      .diya {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-
-        gap: 10px;
-
-        font-size: 34px;
-
-        margin-bottom: 15px;
-
-        /* stable + glow */
-        animation: diyaGlow 1.5s infinite alternate;
-      }
-
-      /* individual diya spacing */
-      .diya span {
-        display: inline-block;
-      }
-
-      @keyframes diyaGlow {
-        from {
-          filter: drop-shadow(0 0 5px gold);
-          transform: scale(1);
-        }
-
-        to {
-          filter: drop-shadow(0 0 25px orange);
-          transform: scale(1.1);
-        }
-      }
-
-      /* TEXT */
-
-      h1 {
-        font-size: 36px;
-        text-shadow: 0 0 10px gold;
-      }
-
-      .names {
-        font-size: 36px;
-        color: white;
-        margin: 25px 0;
-
-        letter-spacing: 2px;
-
-        text-shadow:
-          0 0 10px gold,
-          0 0 25px rgba(255, 215, 0, 0.8);
-
-        animation: fadeIn 2s ease;
-      }
-
-      @keyframes fadeIn {
-        from {
-          opacity: 0;
-          transform: translateY(20px);
-        }
-
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-
-      .section-title {
-        font-size: 32px;
-        margin-bottom: 25px;
-        text-shadow: 0 0 10px gold;
-      }
-
-      .event {
-        position: relative;
-
-        margin: 25px auto;
-
-        padding: 25px 20px;
-
-        width: 80%;
-
-        background: linear-gradient(145deg, #7a0000, #a30000);
-
-        border: 2px solid gold;
-
-        border-radius: 20px;
-
-        box-shadow:
-          0 0 8px gold,
-          0 0 20px rgba(255, 215, 0, 0.6);
-
-        transition: all 0.4s ease;
-      }
-
-      .event::before,
-      .event::after {
-        position: absolute;
-        font-size: 20px;
-        color: gold;
-        top: 50%;
-        transform: translateY(-50%);
-      }
-
-      .event:hover {
-        transform: scale(1.05);
-
-        box-shadow:
-          0 0 15px gold,
-          0 0 40px rgba(255, 215, 0, 0.9);
-      }
-
-      .event-title {
-        position: absolute;
-
-        top: -14px;
-        left: 50%;
-
-        transform: translateX(-50%);
-
-        background: gold;
-
-        color: #8b0000;
-
-        padding: 6px 18px;
-
-        border-radius: 20px;
-
-        font-size: 18px;
-        font-weight: bold;
-
-        box-shadow: 0 0 8px gold;
-      }
-
-      .event-date {
-        font-size: 20px;
-        margin-top: 10px;
-      }
-
-      .event-time {
-        font-size: 18px;
-
-        color: #ffe9a3;
-
-        margin-top: 5px;
-      }
-
-      /* VENUE */
-
-      .venue {
-        margin-top: 30px;
-        font-size: 20px;
-        line-height: 1.7;
-
-        background: rgba(255, 215, 0, 0.08);
-        padding: 20px;
-        border-radius: 12px;
-
-        border: 1px solid gold;
-      }
-
-      .venue-title {
-        font-size: 24px;
-        font-weight: bold;
-
-        background: gold;
-        color: #8b0000;
-
-        padding: 8px 20px;
-        display: inline-block;
-
-        border-radius: 8px;
-        margin-bottom: 12px;
-      }
-
-      /* MAP BUTTON */
-
-      .map-btn {
-        margin-top: 20px;
-        padding: 12px 28px;
-
-        background: linear-gradient(45deg, gold, #ffcc00);
-
-        color: #8b0000;
-
-        font-size: 18px;
-        font-weight: bold;
-
-        border-radius: 30px;
-
-        text-decoration: none;
-
-        box-shadow: 0 0 15px gold;
-
-        transition: 0.3s;
-      }
-
-      .map-btn:hover {
-        transform: scale(1.1);
-        box-shadow: 0 0 25px gold;
-      }
-
-      /* COUNTDOWN */
-
-      .countdown {
-        margin-top: 25px;
-
-        font-size: 26px;
-
-        background: linear-gradient(145deg, #a30000, #7a0000);
-
-        padding: 20px;
-
-        border-radius: 15px;
-
-        border: 1px solid gold;
-
-        box-shadow: 0 0 15px rgba(255, 215, 0, 0.6);
-
-        animation: pulse 2s infinite;
-      }
-
-      @keyframes pulse {
-        0% {
-          transform: scale(1);
-        }
-
-        50% {
-          transform: scale(1.03);
-        }
-
-        100% {
-          transform: scale(1);
-        }
-      }
-
-      /* FOOTER */
-
-      .footer-row {
-        display: flex;
-        justify-content: space-between;
-        margin-top: 40px;
-        flex-wrap: wrap;
-      }
-
-      .col {
-        width: 33%;
-        font-size: 18px;
-      }
-
-      .center {
-        text-align: center;
-      }
-
-      .right {
-        text-align: right;
-      }
-
-      /* CHILD */
-
-      .child {
-        margin-top: 40px;
-        font-size: 20px;
-
-        background: rgba(255, 215, 0, 0.1);
-        padding: 20px;
-
-        border-radius: 10px;
-
-        border: 1px solid gold;
-      }
-
-      /* MOBILE */
-
-      @media (max-width: 700px) {
-        .col {
-          width: 100%;
-          text-align: center;
-          margin-bottom: 15px;
-        }
-
-        .names {
-          font-size: 26px;
-        }
-      }
-
-      #envelope {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100vh;
-
-        background: #8b0000;
-
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-
-        z-index: 9999;
-        cursor: pointer;
-      }
-
-      #envelope .cover {
-        font-size: 120px;
-        animation: shake 1s infinite;
-      }
-
-      #envelope .text {
-        margin-top: 30px;
-        color: white;
-        font-size: 32px;
-      }
-
-      @keyframes shake {
-        0% {
-          transform: rotate(0);
-        }
-
-        50% {
-          transform: rotate(10deg);
-        }
-
-        100% {
-          transform: rotate(0);
-        }
-      }
-
-      .book {
-        perspective: 1500px;
-      }
-
-      .page {
-        transform-style: preserve-3d;
-        transition: transform 1s;
-      }
-
-      .page:hover {
-        transform: rotateY(-10deg);
-      }
-
-      /* @keyframes boom{
-0%{transform:scale(0); opacity:1;}
-100%{transform:scale(3); opacity:0;}
-} */
-      .video-bg {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: -1;
-        overflow: hidden;
-      }
-
-      #bgVideo {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100vw;
-        height: 100vh;
-        object-fit: cover;
-        z-index: -1;
-        pointer-events: none;
-        filter: brightness(40%);
-      }
-
-      .video-bg iframe {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        width: 177.77vh;
-        /* 16:9 ratio */
-        height: 100vh;
-        transform: translate(-50%, -50%);
-        pointer-events: none;
-      }
-
-      /* mobile fix */
-      @media (max-aspect-ratio: 16/9) {
-        .video-bg iframe {
-          width: 100vw;
-          height: 56.25vw;
-        }
-      }
-
-      .ganesh {
-        text-align: center;
-        margin-bottom: 10px;
-      }
-
-      .ganesh img {
-        width: 90px;
-        height: auto;
-
-        /* glow effect */
-        filter: drop-shadow(0 5px 10px rgba(0, 0, 0, 0.4));
-        box-shadow: 0 0 15px gold;
-
-        border-radius: 50%;
-
-        /* smooth floating */
-        animation: ganeshFloat 3s ease-in-out infinite;
-      }
-
-      @keyframes ganeshFloat {
-        0%,
-        100% {
-          transform: translateY(0);
-        }
-
-        50% {
-          transform: translateY(-5px);
-        }
-      }
-
-      @keyframes ganeshFloat {
-        0%,
-        100% {
-          transform: translateY(0);
-        }
-
-        50% {
-          transform: translateY(-8px);
-        }
-      }
-
-      .shlok-box {
-        position: relative;
-        width: 100%;
-        text-align: center;
-        padding: 30px 10px;
-      }
-
-      /* Button Common */
-      .music-btn {
-        position: absolute;
-        top: 10px;
-        z-index: 9999;
-
-        background: linear-gradient(135deg, #ffd700, #ffb300);
-        color: #7a0000;
-        border: none;
-
-        padding: 10px 18px;
-        border-radius: 30px;
-        cursor: pointer;
-      }
-
-      /* Left */
-      .left-btn {
-        left: 10px;
-      }
-
-      /* Right */
-      .right-btn {
-        right: 10px;
-      }
-      /* Hover */
-      .music-btn:hover {
-        transform: translateY(-2px) scale(1.05);
-
-        box-shadow:
-          0 8px 25px rgba(255, 215, 0, 0.9),
-          0 0 15px gold;
-
-        background: linear-gradient(135deg, #ffcc00, #ff9900);
-      }
-      .music-btn:active {
-        transform: scale(0.95);
-        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
-      }
-
-
-
-      @media (max-width: 600px) {
-
-  /* 🔠 FONT SIZE INCREASE */
-  h1 {
-    font-size: 26px;
-    margin-bottom: 10px;
-  }
-
-  .names {
-    font-size: 24px;
-    margin: 12px 0;
-  }
-
-  .section-title {
-    font-size: 24px;
-    margin-bottom: 15px;
-  }
-
-  .event-date {
-    font-size: 18px;
-  }
-
-  .event-time {
-    font-size: 16px;
-  }
-
-  .venue {
-    font-size: 17px;
-    line-height: 1.5;
-  }
-
-  .countdown {
-    font-size: 20px;
-    padding: 12px;
-  }
-
-  /* 📦 GAP कम करो */
-  .card {
-    padding: 20px 12px;
-    gap: 10px;
-  }
-
-  .event {
-    margin: 12px auto;
-    padding: 15px;
-  }
-
-  .venue {
-    margin-top: 15px;
-    padding: 12px;
-  }
-
-  .child {
-    margin-top: 20px;
-    padding: 12px;
-    font-size: 17px;
-  }
-
-  /* 🎯 BUTTON FIX */
-  .music-btn {
-    font-size: 14px;
-    padding: 8px 12px;
-    margin-bottom: 8px;
-  }
-
-  /* 🪔 diya gap */
-  .diya {
-    font-size: 28px;
-    margin-bottom: 8px;
-  }
-
-  /* 🧾 paragraph spacing tight */
-  p {
-    margin: 6px 0;
-    font-size: 16px;
-  }
+/* 🌸 ENVELOPE FULL SCREEN */
+#envelope {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+
+  background: #8b0000;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  z-index: 9999;
 }
-@media (max-width: 600px) {
-  .music-btn {
-    font-size: 16px;
-    padding: 12px 18px;
-  }
+
+/* BOX */
+.envelope-box {
+  position: relative;
+  width: 260px;
+  height: 180px;
+  background: #a30000;
+  border: 3px solid gold;
+  border-radius: 12px;
+  overflow: hidden;
 }
-@media (max-width: 600px) {
-  .page {
-    padding: 10px;   /* पहले 40px था → कम कर दिया */
-  }
 
-  .card {
-    width: 100%;
-    max-width: 100%;
-    padding: 18px 10px;  /* side gap कम */
-    border-radius: 12px;
-  }
+/* 🔺 FLAP (triangle) */
+.flap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #c40000;
+
+  clip-path: polygon(0 0, 50% 50%, 100% 0);
+
+  z-index: 1;   /* 👈 पीछे */
 }
-@media (max-width: 600px) {
 
-  h1 {
-    font-size: 28px;
-  }
+/* 📜 LETTER */
+.letter {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 
-  .names {
-    font-size: 26px;
-  }
+  background: #fff5e1;
 
-  .section-title {
-    font-size: 26px;
-  }
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 
-  .event-date {
-    font-size: 20px;
-  }
-
-  .event-time {
-    font-size: 18px;
-  }
-
-  .venue {
-    font-size: 18px;
-  }
-
-  .countdown {
-    font-size: 22px;
-  }
-
-  p {
-    font-size: 17px;
-  }
+  z-index: 2;   /* 👈 ऊपर */
 }
-@media (max-width: 600px) {
 
-  .event {
-    margin: 10px 0;
-    padding: 12px;
-  }
-
-  .venue {
-    margin-top: 12px;
-    padding: 10px;
-  }
-
-  .child {
-    margin-top: 15px;
-    padding: 10px;
-  }
-
-  .names {
-    margin: 10px 0;
-  }
+/* 💌 ICON */
+.cover {
+  font-size: 36px;
 }
-@media (max-width: 600px) {
-  .music-btn {
-    font-size: 17px;
-    padding: 10px 16px;
-  }
+
+/* 🔥 TEXT */
+.text {
+  font-size: 18px;
+  font-weight: bold;
+  color: #8b0000;
+
+  text-align: center;
+  margin-top: 8px;
+
+  z-index: 3;
+}
+
+/* 👇 HINT */
+.hint {
+  font-size: 14px;
+  margin-top: 5px;
+  color: #444;
+}
+
+/* ❌ REMOVE ANY TRANSFORM (problem cause) */
+.letter,
+.flap {
+  transform: none !important;
 }
     </style>
   </head>
@@ -842,13 +366,21 @@
       <source src="./videoplayback.mp3" type="audio/mp3" />
     </audio>
 
-   <div class="envelope-container">
-    
-    <div id="envelope" onclick="openCard()">
-        <div class="cover">💌</div>
-        <div class="text">✨ Invitation खोलें ✨</div>
+  <div class="envelope-container">
+<div id="envelope" onclick="openCard()">
+  <div class="envelope-box">
+
+    <div class="flap"></div>
+
+    <div class="letter">
+      <div class="cover">💌</div>
+
+      <div class="text">💌 Tap Here to Open 💖 Invitation 💍</div>
+      <div class="hint">👇 Click Here 👇</div>
     </div>
 
+  </div>
+</div>
 </div>
 
     <!-- PAGE 1 -->
@@ -1056,7 +588,7 @@
         fire.style.position = "fixed";
         fire.style.left = Math.random() * 100 + "%";
         fire.style.top = Math.random() * 100 + "%";
-        fire.style.fontSize = "25px";
+        fire.style.fontSize = "30px";
 
         fire.style.animation = "boom 1s ease-out";
 
